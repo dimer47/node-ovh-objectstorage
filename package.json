@@ -1,0 +1,37 @@
+{
+  "name": "node-ovh-objectstorage",
+  "version": "1.0.0",
+  "description": "Simple library to use OVH Public Cloud Object Storage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimer47/node-ovh-objectstorage.git"
+  },
+  "keywords": [
+    "ovh",
+    "public",
+    "cloud",
+    "object",
+    "storage",
+    "pccs",
+    "nodejs",
+    "node",
+    "openstack",
+    "swift"
+  ],
+  "dependencies" : {
+    "md5" : "latest",
+    "request" : "latest",
+    "request-debug" : "latest",
+    "lodash" : "latest"
+  },
+  "author": "IACHI Dimitri Fabien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dimer47/node-ovh-objectstorage/issues"
+  },
+  "homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme"
+}
