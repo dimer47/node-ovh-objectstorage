@@ -99,3 +99,61 @@ function(err){
     // error
 })
 ```
+
+### Objects
+#### Get object
+```javascript
+storage.object().get('/container/file.ext', './localfolder/file.ext', function(file_content, file_meta) {
+    console.log(file_content);
+    console.log(file_meta);
+},
+function(err){
+    // error
+})
+```
+#### Get object content
+```javascript
+storage.object().get('/container/file.ext', null, function(file_content, file_meta) {
+    console.log(file_content);
+    console.log(file_meta);
+},
+function(err){
+    // error
+})
+```
+#### Put object
+```javascript
+storage.object().set('./localfolder/file.ext', '/container/file.ext', function(data) {
+    console.log(data);
+},
+function(err){
+    // error
+})
+```
+#### Clone object
+```javascript
+storage.object().copy('/container/file.ext', '/container/file_duplicated.ext', function(data) {
+    console.log(data);
+},
+function(err){
+    // error
+})
+```
+#### Delete object
+```javascript
+storage.object().delete('/container/file.ext', function(data) {
+    console.log(data);
+},
+function(err){
+    // error
+})
+```
+#### Meta informations of object
+```javascript
+storage.object().info('/container/file.ext', function(metas) {
+    console.log(metas);
+},
+function(err){
+    // error
+})
+```
