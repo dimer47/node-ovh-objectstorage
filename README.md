@@ -1,7 +1,8 @@
 # ObjectStorage OVH
 __Package__ : node-ovh-objectstorage
 __Description__ : Simple library to use OVH Public Cloud Object Storage.
-__Usage__ : Manage objects and privata container in OVH Openstack (Public Cloud).
+__Usage__ : Manage objects and privaea container in OVH Openstack (Public Cloud).
+__Based on__ : https://developer.openstack.org/api-ref/object-storage/?expanded=
 
 ## Install via npm
 ```sh
@@ -54,7 +55,7 @@ storage.connection(
     function(err){}
   );
 ```
-#### Delete 
+#### Delete
 ```javascript
 storage.container().delete('name', function(result) {
     console.log(result);
