@@ -4,7 +4,7 @@
   "description": "Simple library to use OVH Public Cloud Object Storage.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=ovh ava -v"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,14 @@
   "bugs": {
     "url": "https://github.com/dimer47/node-ovh-objectstorage/issues"
   },
-  "homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme"
+  "homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme",
+  "devDependencies": {
+    "ava": "1.0.0-beta.8"
+  },
+  "ava": {
+    "files": [
+      "test/**/*test.js",
+      "!test/mongo/**"
+    ]
+  }
 }
