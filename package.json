@@ -4,7 +4,7 @@
   "description": "Simple library to use OVH Public Cloud Object Storage.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=ovh ava -v"
   },
   "repository": {
     "type": "git",
@@ -22,16 +22,24 @@
     "openstack",
     "swift"
   ],
-  "dependencies" : {
-    "md5" : "latest",
-    "request" : "latest",
-    "request-debug" : "latest",
-    "lodash" : "latest"
+  "dependencies": {
+    "config": "^2.0.1",
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.2.0"
   },
   "author": "IACHI Dimitri Fabien",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dimer47/node-ovh-objectstorage/issues"
   },
-  "homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme"
+  "homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme",
+  "devDependencies": {
+    "ava": "1.0.0-beta.8"
+  },
+  "ava": {
+    "files": [
+      "test/**/*test.js",
+      "!test/mongo/**"
+    ]
+  }
 }

@@ -1,0 +1,9 @@
+{
+  "storageConfig": {
+    "username": "username",
+    "password": "password",
+    "authURL": "https://auth.cloud.ovh.net/v2.0",
+    "tenantId": "tenantId",
+    "region": "GRA3"
+  }
+}
