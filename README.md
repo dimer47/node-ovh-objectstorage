@@ -17,9 +17,9 @@ var OVHStorage = require('node-ovh-objectstorage');
 var config = {
   username: '******',
   password: '******',
-  authURL:  'https://auth.cloud.ovh.net/v2.0',
+  authURL:  'https://auth.cloud.ovh.net/v3/auth',
   tenantId: '******',
-  region:   'SBG1'
+  region:   'SBG'
 };
 
 var storage = new OVHStorage(config);
