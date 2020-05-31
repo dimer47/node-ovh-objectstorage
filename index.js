@@ -1,4 +1,4 @@
 
 'use strict';
 
-module.exports = require('./lib/OVHObjectStorage.js');
+module.exports = require('./src/OVHObjectStorage.js');

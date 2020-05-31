@@ -1,10 +1,11 @@
 {
   "name": "node-ovh-objectstorage",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Simple library to use OVH Public Cloud Object Storage.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "rm -rf ./doc && node_modules/jsdoc/jsdoc.js -c jsdoc-config.json"
   },
   "repository": {
     "type": "git",
@@ -22,16 +23,23 @@
     "openstack",
     "swift"
   ],
-  "dependencies" : {
-    "md5" : "latest",
-    "request" : "latest",
-    "request-debug" : "latest",
-    "lodash" : "latest"
+  "dependencies": {
+    "lodash": "latest",
+    "md5": "latest",
+    "moment": "^2.25.3",
+    "request": "latest",
+    "request-debug": "latest"
   },
   "author": "IACHI Dimitri Fabien",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dimer47/node-ovh-objectstorage/issues"
   },
-  "homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme"
+  "homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme",
+  "devDependencies": {
+    "braintree-jsdoc-template": "^3.3.0",
+    "documentation": "^12.3.0",
+    "foodoc": "0.0.9",
+    "jsdoc": "^3.6.4"
+  }
 }
