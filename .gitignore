@@ -39,3 +39,5 @@ jspm_packages
 # Test
 test.js
 test/*
+
+.idea

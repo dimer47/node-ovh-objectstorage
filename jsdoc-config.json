@@ -1,0 +1,41 @@
+{
+	"tags": {
+		"allowUnknownTags": true
+	},
+	"sourceType": "module",
+	"source": {
+		"include": [
+			"src",
+			"./README.md"
+		]
+	},
+	"plugins": ["plugins/markdown"],
+	"templates": {
+		"referenceTitle": "OVH Object Storage",
+		"cleverLinks": false,
+		"collapse": true,
+		"monospaceLinks": false,
+		"default": {
+			"outputSourceFiles": true
+		},
+		"resources": {
+		},
+		"search": {
+			"apiKey": "2368eaa6d6ed077a1597c1ecc99262d5",
+			"indexName": "node-ovh-objectstorage",
+			"hitsPerPage": "7"
+		}
+	},
+	"opts": {
+		"encoding": "utf8",
+		"destination": "./doc",
+		"template": "./node_modules/braintree-jsdoc-template"
+	},
+	"markdown.hardwrap": true,
+	"markdown": {
+		"hardwrap": true
+	},
+	"metadata": {
+		"title": "OVH Object Storage"
+	}
+}
