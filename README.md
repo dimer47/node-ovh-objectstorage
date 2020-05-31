@@ -1,21 +1,23 @@
 # ObjectStorage OVH
 
 
-![Release : 2.0 ](https://img.shields.io/github/package-json/v/dimer47/node-ovh-objectstorage?color=red&style=flat-square) ![Last update](https://img.shields.io/github/last-commit/dimer47/node-ovh-objectstorage?color=yellow&label=Last%20update&style=flat-square) ![Dependency size](https://img.shields.io/bundlephobia/minzip/node-ovh-objectstorage?color=green&label=dependency%20size&style=flat-square) ![Repo size](https://img.shields.io/github/repo-size/dimer47/node-ovh-objectstorage?style=flat-square) ![Downloads](https://img.shields.io/npm/dt/node-ovh-objectstorage?style=flat-square) ![License](https://img.shields.io/github/license/dimer47/node-ovh-objectstorage?style=flat-square) 
+![Release : 2.0 ](https://img.shields.io/github/package-json/v/dimer47/node-ovh-objectstorage?color=red&style=flat-square)
+![Last update](https://img.shields.io/github/last-commit/dimer47/node-ovh-objectstorage?color=yellow&label=Last%20update&style=flat-square) 
+![Dependency size](https://img.shields.io/bundlephobia/minzip/node-ovh-objectstorage?color=green&label=dependency%20size&style=flat-square) 
+![Repo size](https://img.shields.io/github/repo-size/dimer47/node-ovh-objectstorage?style=flat-square) 
+![Downloads](https://img.shields.io/npm/dt/node-ovh-objectstorage?style=flat-square) 
+![License](https://img.shields.io/github/license/dimer47/node-ovh-objectstorage?style=flat-square) 
 
-Simple library to use OVH Public Cloud Object Storage. <br> <br>
+
+Simple library to use OVH Public Cloud Object Storage.<br><br>
 Create and manage containers (public, private or static), add and manage objects in OVH Public Cloud (OpenStack).
 
 __Based on__  [developer.openstack.org](https://developer.openstack.org/api-ref/object-storage/?expanded=) official documentation.
 
-A complete JSDoc is available [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/dimer47/node-ovh-objectstorage/master/doc/index.html). 
-<br>
-
-**⚠️ Warning :** This version introduce `some breakpoints`, if you want use this version, it's recommended to refactoring all your projects. <br>
+A complete JSDoc is available [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/dimer47/node-ovh-objectstorage/master/doc/index.html). <br>
 To use the previous version (V1), go on [#v1.0.x branch](https://github.com/dimer47/node-ovh-objectstorage/releases/tag/v1.0.2).
 
-
-## 🎉 Features 
+## Features 
 - Get account details and manage metas (create, update, has, get or delete),
 - Create, list, get details or delete containers,
 - Check if object exist in a container,
@@ -27,12 +29,12 @@ To use the previous version (V1), go on [#v1.0.x branch](https://github.com/dime
 - Program automatic delete of an object on datetime or after seconds,
 - Manage metas on objects (create, update, has, get or delete).
 
-## 📍 Install via npm
+## Install via npm
 ```sh
 npm install node-ovh-objectstorage --save
 ```
 
-## 🧮 Examples :
+## Examples :
 ### Authentification
 Requesting a token to make operations on container.
 ```javascript
@@ -659,6 +661,6 @@ var config = {
 })();
 ```
 
-## 🧾 License
+## License
 [Creative Commons Attribution Share Alike 4.0 International](LICENSE)
 

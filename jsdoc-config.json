@@ -17,6 +17,13 @@
 		"monospaceLinks": false,
 		"default": {
 			"outputSourceFiles": true
+		},
+		"resources": {
+		},
+		"search": {
+			"apiKey": "2368eaa6d6ed077a1597c1ecc99262d5",
+			"indexName": "node-ovh-objectstorage",
+			"hitsPerPage": "7"
 		}
 	},
 	"opts": {
