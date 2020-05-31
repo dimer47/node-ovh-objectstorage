@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      Global - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  
+  <link type="text/css" rel="stylesheet" href="styles/collapse.css">
+  
+
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+  
+
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+  0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+  mixpanel.init("1919205b2da72e4da3b9b6639b444d59");</script>
+  <!-- end Mixpanel -->
+</head>
+
+<body>
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <div class="top-nav-wrapper">
+    <ul>
+      <li >
+        <a href="index.html">
+          
+            <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          
+          
+        </a>
+      </li>
+
+      
+      <li>
+        <div class="search-wrapper">
+          <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+
+          </svg>
+          <input type="text" placeholder="Search" class="search-input">
+        </div>
+      </li>
+      
+
+    </ul>
+  </div>
+
+  <nav>
+    <h3 class="reference-title">
+      OVH Object Storage
+    </h3>
+
+    
+      <h3>
+        Resources
+      </h3>
+      
+    
+
+    <h3>Classes</h3><ul><li id="Account-nav"><a href="Account.html">Account</a><ul class='methods'><li data-type="method" id="Account-all-nav"><a href="Account.html#all">all</a></li><li data-type="method" id="Account-containers-nav"><a href="Account.html#containers">containers</a></li><li data-type="method" id="Account-details-nav"><a href="Account.html#details">details</a></li><li data-type="method" id="Account-metas-nav"><a href="Account.html#metas">metas</a></li></ul></li><li id="AccountMeta-nav"><a href="AccountMeta.html">AccountMeta</a><ul class='methods'><li data-type="method" id="AccountMeta-all-nav"><a href="AccountMeta.html#all">all</a></li><li data-type="method" id="AccountMeta-create-nav"><a href="AccountMeta.html#create">create</a></li><li data-type="method" id="AccountMeta-create_with_result-nav"><a href="AccountMeta.html#create_with_result">create_with_result</a></li><li data-type="method" id="AccountMeta-delete-nav"><a href="AccountMeta.html#delete">delete</a></li><li data-type="method" id="AccountMeta-delete_with_result-nav"><a href="AccountMeta.html#delete_with_result">delete_with_result</a></li><li data-type="method" id="AccountMeta-get-nav"><a href="AccountMeta.html#get">get</a></li><li data-type="method" id="AccountMeta-has-nav"><a href="AccountMeta.html#has">has</a></li><li data-type="method" id="AccountMeta-update-nav"><a href="AccountMeta.html#update">update</a></li><li data-type="method" id="AccountMeta-update_with_result-nav"><a href="AccountMeta.html#update_with_result">update_with_result</a></li></ul></li><li id="Containers-nav"><a href="Containers.html">Containers</a><ul class='methods'><li data-type="method" id="Containers-create-nav"><a href="Containers.html#create">create</a></li><li data-type="method" id="Containers-create_with_result-nav"><a href="Containers.html#create_with_result">create_with_result</a></li><li data-type="method" id="Containers-delete-nav"><a href="Containers.html#delete">delete</a></li><li data-type="method" id="Containers-delete_objects-nav"><a href="Containers.html#delete_objects">delete_objects</a></li><li data-type="method" id="Containers-delete_objects_with_result-nav"><a href="Containers.html#delete_objects_with_result">delete_objects_with_result</a></li><li data-type="method" id="Containers-delete_with_result-nav"><a href="Containers.html#delete_with_result">delete_with_result</a></li><li data-type="method" id="Containers-exist-nav"><a href="Containers.html#exist">exist</a></li><li data-type="method" id="Containers-info-nav"><a href="Containers.html#info">info</a></li><li data-type="method" id="Containers-list-nav"><a href="Containers.html#list">list</a></li><li data-type="method" id="Containers-metas-nav"><a href="Containers.html#metas">metas</a></li></ul></li><li id="ContainersMeta-nav"><a href="ContainersMeta.html">ContainersMeta</a><ul class='methods'><li data-type="method" id="ContainersMeta-all-nav"><a href="ContainersMeta.html#all">all</a></li><li data-type="method" id="ContainersMeta-create-nav"><a href="ContainersMeta.html#create">create</a></li><li data-type="method" id="ContainersMeta-create_with_result-nav"><a href="ContainersMeta.html#create_with_result">create_with_result</a></li><li data-type="method" id="ContainersMeta-delete-nav"><a href="ContainersMeta.html#delete">delete</a></li><li data-type="method" id="ContainersMeta-delete_with_result-nav"><a href="ContainersMeta.html#delete_with_result">delete_with_result</a></li><li data-type="method" id="ContainersMeta-get-nav"><a href="ContainersMeta.html#get">get</a></li><li data-type="method" id="ContainersMeta-has-nav"><a href="ContainersMeta.html#has">has</a></li><li data-type="method" id="ContainersMeta-update-nav"><a href="ContainersMeta.html#update">update</a></li><li data-type="method" id="ContainersMeta-update_with_result-nav"><a href="ContainersMeta.html#update_with_result">update_with_result</a></li></ul></li><li id="Objects-nav"><a href="Objects.html">Objects</a><ul class='methods'><li data-type="method" id="Objects-copy-nav"><a href="Objects.html#copy">copy</a></li><li data-type="method" id="Objects-copy_with_result-nav"><a href="Objects.html#copy_with_result">copy_with_result</a></li><li data-type="method" id="Objects-delete-nav"><a href="Objects.html#delete">delete</a></li><li data-type="method" id="Objects-delete_with_result-nav"><a href="Objects.html#delete_with_result">delete_with_result</a></li><li data-type="method" id="Objects-deletes-nav"><a href="Objects.html#deletes">deletes</a></li><li data-type="method" id="Objects-deletes_with_result-nav"><a href="Objects.html#deletes_with_result">deletes_with_result</a></li><li data-type="method" id="Objects-download-nav"><a href="Objects.html#download">download</a></li><li data-type="method" id="Objects-exist-nav"><a href="Objects.html#exist">exist</a></li><li data-type="method" id="Objects-expire_after-nav"><a href="Objects.html#expire_after">expire_after</a></li><li data-type="method" id="Objects-expire_after_with_result-nav"><a href="Objects.html#expire_after_with_result">expire_after_with_result</a></li><li data-type="method" id="Objects-expire_at-nav"><a href="Objects.html#expire_at">expire_at</a></li><li data-type="method" id="Objects-expire_at_with_result-nav"><a href="Objects.html#expire_at_with_result">expire_at_with_result</a></li><li data-type="method" id="Objects-get-nav"><a href="Objects.html#get">get</a></li><li data-type="method" id="Objects-info-nav"><a href="Objects.html#info">info</a></li><li data-type="method" id="Objects-metas-nav"><a href="Objects.html#metas">metas</a></li><li data-type="method" id="Objects-save-nav"><a href="Objects.html#save">save</a></li><li data-type="method" id="Objects-save_with_result-nav"><a href="Objects.html#save_with_result">save_with_result</a></li><li data-type="method" id="Objects-set-nav"><a href="Objects.html#set">set</a></li><li data-type="method" id="Objects-set_with_result-nav"><a href="Objects.html#set_with_result">set_with_result</a></li></ul></li><li id="ObjectsMeta-nav"><a href="ObjectsMeta.html">ObjectsMeta</a><ul class='methods'><li data-type="method" id="ObjectsMeta-all-nav"><a href="ObjectsMeta.html#all">all</a></li><li data-type="method" id="ObjectsMeta-create-nav"><a href="ObjectsMeta.html#create">create</a></li><li data-type="method" id="ObjectsMeta-create_with_result-nav"><a href="ObjectsMeta.html#create_with_result">create_with_result</a></li><li data-type="method" id="ObjectsMeta-delete-nav"><a href="ObjectsMeta.html#delete">delete</a></li><li data-type="method" id="ObjectsMeta-delete_with_result-nav"><a href="ObjectsMeta.html#delete_with_result">delete_with_result</a></li><li data-type="method" id="ObjectsMeta-get-nav"><a href="ObjectsMeta.html#get">get</a></li><li data-type="method" id="ObjectsMeta-has-nav"><a href="ObjectsMeta.html#has">has</a></li><li data-type="method" id="ObjectsMeta-update-nav"><a href="ObjectsMeta.html#update">update</a></li><li data-type="method" id="ObjectsMeta-update_with_result-nav"><a href="ObjectsMeta.html#update_with_result">update_with_result</a></li></ul></li><li id="OVHStorage-nav"><a href="OVHStorage.html">OVHStorage</a><ul class='methods'><li data-type="method" id="OVHStorage-account-nav"><a href="OVHStorage.html#account">account</a></li><li data-type="method" id="OVHStorage-connection-nav"><a href="OVHStorage.html#connection">connection</a></li><li data-type="method" id="OVHStorage-containers-nav"><a href="OVHStorage.html#containers">containers</a></li><li data-type="method" id="OVHStorage-getConnectionDetails-nav"><a href="OVHStorage.html#getConnectionDetails">getConnectionDetails</a></li><li data-type="method" id="OVHStorage-objects-nav"><a href="OVHStorage.html#objects">objects</a></li></ul></li></ul><h3 id="global-nav"><a href="global.html">Global</a></h3>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        Global
+      </h1>
+    
+
+    
+
+<section>
+  <header>
+    
+      <h2>
+        
+        
+        
+      </h2>
+
+      
+    
+  </header>
+
+  <article>
+    <div class="container-overview">
+      
+        
+
+        
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+        
+      
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+      <h3 class="subsection-title">Type Definitions</h3>
+
+      
+          
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#AccountAll">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="AccountAll">
+      <span class="type-signature"></span>AccountAll<span class="type-signature"> :Object</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Object of account details and list containers.</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h5 class="subsection-title">Properties:</h5>
+
+  
+
+<table class="props">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+
+    <tr>
+      
+        <td class="name"><code>account</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      Object
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Indicates whether the Courage component is present.</p>
+          </td>
+    </tr>
+
+  
+
+    <tr>
+      
+        <td class="name"><code>containers</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      Array.&lt;Object>
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Indicates whether the Power component is present.</p>
+          </td>
+    </tr>
+
+  
+  </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="Account.js.html">Account.js</a>, <a href="Account.js.html#line21">line 21</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+          
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#OVHStorageConfig">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="OVHStorageConfig">
+      <span class="type-signature"></span>OVHStorageConfig<span class="type-signature"> :Object</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Object of account details and list containers.</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h5 class="subsection-title">Properties:</h5>
+
+  
+
+<table class="props">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+        <th>Attributes</th>
+      
+
+      
+        <th>Default</th>
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+
+    <tr>
+      
+        <td class="name"><code>username</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+          <td class="attributes">
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>OVH Public Cloud swift user name</p>
+          </td>
+    </tr>
+
+  
+
+    <tr>
+      
+        <td class="name"><code>password</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+          <td class="attributes">
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>OVH Public Cloud swift user password</p>
+          </td>
+    </tr>
+
+  
+
+    <tr>
+      
+        <td class="name"><code>authURL</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      URL
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+          <td class="attributes">
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>OVH Public Cloud auth url</p>
+          </td>
+    </tr>
+
+  
+
+    <tr>
+      
+        <td class="name"><code>tenantId</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+          <td class="attributes">
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>OVH Public Cloud swift tenant ID</p>
+          </td>
+    </tr>
+
+  
+
+    <tr>
+      
+        <td class="name"><code>region</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+          <td class="attributes">
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>OVH Public Cloud swift region</p>
+          </td>
+    </tr>
+
+  
+
+    <tr>
+      
+        <td class="name"><code>debug</code></td>
+      
+
+      <td class="type">
+        
+          
+    <span class="param-type">
+      boolean
+    </span>
+
+    
+
+
+        
+      </td>
+
+        
+          <td class="attributes">
+            
+              &lt;optional><br>
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+              false
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>OVH Public Cloud swift user name</p>
+          </td>
+    </tr>
+
+  
+  </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="OVHObjectStorage.js.html">OVHObjectStorage.js</a>, <a href="OVHObjectStorage.js.html#line42">line 42</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="example-container">
+    <a class="link-icon" href="#OVHStorageConfig-examples">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h5 id="OVHStorageConfig-examples">Example</h5>
+    
+
+  <pre class="prettyprint"><code>let config = {
+   username: '************',
+   password: '*****************************',
+   authURL: 'https://auth.cloud.ovh.net/v3/auth',
+   tenantId: '************************************',
+   region: 'SBG',
+   debug: false
+};</code></pre>
+
+
+  </div>
+
+
+        
+          
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#OVHStorageContainerStaticWebContentPages">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="OVHStorageContainerStaticWebContentPages">
+      <span class="type-signature"></span>OVHStorageContainerStaticWebContentPages<span class="type-signature"> :Object</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Names object of index, css and error files.<br>
+<strong>!! USE ONLY FOR STATIC CONTAINER DECLARATION !!</strong></p>
+<p>When object is not specified default files are :</p>
+<ul>
+<li>index : 'index.html'</li>
+<li>css : 'listing.css'</li>
+<li>error : 'error.html'</li>
+</ul>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>index</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>This is name of index file used when url of static container is request.</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>css</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>This is name of CSS file used to style index and error file.</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>error</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>This is name of error page used when request status is not 200 or 20x.</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="Containers.js.html">Containers.js</a>, <a href="Containers.js.html#line67">line 67</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+    
+  </article>
+</section>
+
+
+
+
+  </div>
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
+  </footer>
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+
+  
+  <script>
+    $(function () {
+      window.docsearch({
+        apiKey: '2368eaa6d6ed077a1597c1ecc99262d5',
+        indexName: 'node-ovh-objectstorage',
+        inputSelector: '.search-input',
+        debug: false, // Set debug to true if you want to inspect the dropdown
+        algoliaOptions: {
+          hitsPerPage: 7
+        }
+      });
+    });
+  </script>
+  
+
+</body>
+</html>
