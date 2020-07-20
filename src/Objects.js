@@ -146,6 +146,69 @@ class Objects {
 			}
 		});
 	}
+	
+	/**
+	 * Save file content
+	 *
+	 * @param {Buffer|Uint8Array|Blob|string|Readable} file Local file path to save
+	 * @param {String} path Path where to store the file
+	 *
+	 * @async
+	 * @return {Promise<Object>}
+	 */
+	save(fileContent, path) {
+		return new Promise(async (resolve, reject) => {
+			try {
+				// check
+				if (_.isUndefined(fileContent)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Local file content parameter is expected.");
+				if (_.isString(fileContent) && fs.existsSync(fileContent))
+					return this.saveFile(fileContent, path);
+
+				if (_.isUndefined(path)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Path parameter is expected.");
+				if (!_.isString(path)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Path parameter is not a string.");
+				if (!_.includes(path, '/')) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Path parameter isn't valid : container/filename.ext.");
+
+				// check if container exist
+				if (!(await this.context.containers().exist((() => {
+					let p = path.split('/');
+					if (p[0] === "")
+						delete p[0];
+
+					p = _.filter(p, (r) => {
+						return !_.isUndefined(r);
+					});
+
+					if (_.count(p) <= 0)
+						return "";
+
+					return p[0];
+				})()))) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container does not seem to exist.");
+
+				request({
+					method: 'PUT',
+					uri: this.context.endpoint.url + path,
+					headers: {
+						"X-Auth-Token": this.context.token,
+						"Accept": "application/json"
+					},
+					body: fileContent
+				}, (err, res, body) => {
+					err = err || request.checkIfResponseIsError(res);
+					if (err) // noinspection ExceptionCaughtLocallyJS
+						throw new Error(err);
+
+					return resolve(res.headers);
+				});
+			} catch (e) {
+				return reject(e);
+			}
+		});
+	}
 
 	/**
 	 * Save file
@@ -156,7 +219,7 @@ class Objects {
 	 * @async
 	 * @return {Promise<Object>}
 	 */
-	save(file, path) {
+	saveFile(file, path) {
 		return new Promise(async (resolve, reject) => {
 			try {
 				// check
