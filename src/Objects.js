@@ -164,7 +164,7 @@ class Objects {
 	/**
 	 * Save file data
 	 *
-	 * @param {Buffer|Uint8Array|Blob|string|Readable} file Local file path to save
+	 * @param {Buffer|Uint8Array|Blob|string|Readable} file data to save
 	 * @param {String} path Path where to store the file
 	 *
 	 * @async
