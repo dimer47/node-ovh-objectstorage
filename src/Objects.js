@@ -129,8 +129,7 @@ class Objects {
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
-					},
-                                        encoding: null
+					}
 				}, (err, res, body) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
