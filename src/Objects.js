@@ -92,11 +92,12 @@ class Objects {
 	 * Get file
 	 *
 	 * @param {String} path Path of file with container
+	 * @param {String|null|undefined} encoding If null, the body is returned as a Buffer by default it is utf8.
 	 *
 	 * @async
 	 * @return {Promise<{content: *, headers: Objects}>}
 	 */
-	get(path) {
+	get(path, encoding = undefined) {
 		return new Promise(async (resolve, reject) => {
 			try {
 				// check
@@ -129,7 +130,8 @@ class Objects {
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
-					}
+					}, 
+					encoding: encoding
 				}, (err, res, body) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
