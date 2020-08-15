@@ -82,7 +82,9 @@ class Objects {
 					return resolve(true);
 				});
 			} catch (e) {
-				fs.unlink(pathLocal);
+				if (fs.existsSync(pathLocal))
+					fs.unlink(pathLocal);
+
 				return reject(e);
 			}
 		});
