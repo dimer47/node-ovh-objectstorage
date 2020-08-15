@@ -149,6 +149,7 @@ class Objects {
 	}
 
 	/**
+	 * @deprecated Use saveFile(file, path)
 	 * Save file
 	 *
 	 * @param {String} file Local file path to save
@@ -158,6 +159,80 @@ class Objects {
 	 * @return {Promise<Object>}
 	 */
 	save(file, path) {
+		return this.saveFile(file, path);
+	}
+	
+	/**
+	 * Save file data
+	 *
+	 * @param {Buffer|Uint8Array|Blob|string|Readable} file data to save
+	 * @param {String} path Path where to store the file
+	 *
+	 * @async
+	 * @return {Promise<Object>}
+	 */
+	saveData(data, path) {
+		return new Promise(async (resolve, reject) => {
+			try {
+				// check
+				if (_.isUndefined(data)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Local file data parameter is expected.");
+
+				if (_.isUndefined(path)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Path parameter is expected.");
+				if (!_.isString(path)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Path parameter is not a string.");
+				if (!_.includes(path, '/')) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Path parameter isn't valid : container/filename.ext.");
+
+				// check if container exist
+				if (!(await this.context.containers().exist((() => {
+					let p = path.split('/');
+					if (p[0] === "")
+						delete p[0];
+
+					p = _.filter(p, (r) => {
+						return !_.isUndefined(r);
+					});
+
+					if (_.count(p) <= 0)
+						return "";
+
+					return p[0];
+				})()))) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container does not seem to exist.");
+
+				request({
+					method: 'PUT',
+					uri: this.context.endpoint.url + path,
+					headers: {
+						"X-Auth-Token": this.context.token,
+						"Accept": "application/json"
+					},
+					body: data
+				}, (err, res, body) => {
+					err = err || request.checkIfResponseIsError(res);
+					if (err) // noinspection ExceptionCaughtLocallyJS
+						throw new Error(err);
+
+					return resolve(res.headers);
+				});
+			} catch (e) {
+				return reject(e);
+			}
+		});
+	}
+	
+	/**
+	 * Save file
+	 *
+	 * @param {String} file Local file path to save
+	 * @param {String} path Path where to store the file
+	 *
+	 * @async
+	 * @return {Promise<Object>}
+	 */
+	saveFile(file, path) {
 		return new Promise(async (resolve, reject) => {
 			try {
 				// check
