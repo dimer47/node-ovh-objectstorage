@@ -46,7 +46,7 @@ class Containers {
 				// call
 				request({
 					method: 'DELETE',
-					uri: this.context.endpoint.url + '/' + container,
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -132,7 +132,7 @@ class Containers {
 				// call
 				request({
 					method: 'PUT',
-					uri: this.context.endpoint.url + '/' + container,
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
 					headers: Object.assign({
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -311,7 +311,7 @@ class Containers {
 					// call
 					request({
 						method: 'GET',
-						uri: this.context.endpoint.url + '/' + container,
+						uri: encodeURI(this.context.endpoint.url + '/' + container),
 						headers: {
 							"X-Auth-Token": this.context.token,
 							"Accept": "application/json"
@@ -354,7 +354,7 @@ class Containers {
 				// call
 				request({
 					method: 'GET',
-					uri: this.context.endpoint.url + '/' + container,
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -405,7 +405,7 @@ class Containers {
 					// call
 					request({
 						method: 'HEAD',
-						uri: this.context.endpoint.url + '/' + container,
+						uri: encodeURI(this.context.endpoint.url + '/' + container),
 						headers: {
 							"X-Auth-Token": this.context.token,
 							"Accept": "application/json"

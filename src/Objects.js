@@ -65,7 +65,7 @@ class Objects {
 
 				request({
 					method: 'GET',
-					uri: this.context.endpoint.url + "/" + file,
+					uri: encodeURI(this.context.endpoint.url + "/" + file),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -128,7 +128,7 @@ class Objects {
 
 				request({
 					method: 'GET',
-					uri: this.context.endpoint.url + "/" + file,
+					uri: encodeURI(this.context.endpoint.url + "/" + file),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -206,7 +206,7 @@ class Objects {
 
 				request({
 					method: 'PUT',
-					uri: this.context.endpoint.url + path,
+					uri: encodeURI(this.context.endpoint.url + path),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -272,7 +272,7 @@ class Objects {
 				let stream = fs.createReadStream(file);
 				stream.pipe(request({
 					method: 'PUT',
-					uri: this.context.endpoint.url + path,
+					uri: encodeURI(this.context.endpoint.url + path),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -401,7 +401,7 @@ class Objects {
 
 				request({
 					method: 'COPY',
-					uri: this.context.endpoint.url + '/' + pathOriginFile,
+					uri: encodeURI(this.context.endpoint.url + '/' + pathOriginFile),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json",
@@ -476,7 +476,7 @@ class Objects {
 				// delete file
 				request({
 					method: 'DELETE',
-					uri: this.context.endpoint.url + '/' + path,
+					uri: encodeURI(this.context.endpoint.url + '/' + path),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -613,7 +613,7 @@ class Objects {
 
 				request({
 					method: 'GET',
-					uri: this.context.endpoint.url + '/' + file,
+					uri: encodeURI(this.context.endpoint.url + '/' + file),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -672,7 +672,7 @@ class Objects {
 				// call
 				request({
 					method: 'HEAD',
-					uri: this.context.endpoint.url + '/' + file,
+					uri: encodeURI(this.context.endpoint.url + '/' + file),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -724,7 +724,7 @@ class Objects {
 
 				request({
 					method: 'POST',
-					uri: this.context.endpoint.url + '/' + path,
+					uri: encodeURI(this.context.endpoint.url + '/' + path),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"X-Delete-At": Math.round(expire_date.toDate().getTime() / 1000),
@@ -792,7 +792,7 @@ class Objects {
 
 				request({
 					method: 'POST',
-					uri: this.context.endpoint.url + '/' + path,
+					uri: encodeURI(this.context.endpoint.url + '/' + path),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"X-Delete-After": parseInt(delete_seconds),

@@ -93,7 +93,7 @@ class OVHStorage {
 		return new Promise((resolve, reject) => {
 			request({
 				method: 'POST',
-				uri: this.config.authURL + '/tokens',
+				uri: encodeURI(this.config.authURL + '/tokens'),
 				json: {
 					"auth": {
 						"identity": {
