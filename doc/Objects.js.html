@@ -226,7 +226,7 @@ class Objects {
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
-					}, 
+					},
 					encoding: encoding
 				}, (err, res, body) => {
 					err = err || request.checkIfResponseIsError(res);
@@ -257,7 +257,7 @@ class Objects {
 	save(file, path) {
 		return this.saveFile(file, path);
 	}
-	
+
 	/**
 	 * Save file data
 	 *
@@ -318,7 +318,7 @@ class Objects {
 			}
 		});
 	}
-	
+
 	/**
 	 * Save file
 	 *
