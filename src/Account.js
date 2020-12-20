@@ -38,7 +38,7 @@ class Account {
 				// call
 				request({
 					method: 'GET',
-					uri: this.context.endpoint.url,
+					uri: encodeURI(this.context.endpoint.url),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"

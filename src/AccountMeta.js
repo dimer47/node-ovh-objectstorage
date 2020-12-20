@@ -43,12 +43,12 @@ class AccountMeta {
 
 				// header
 				let header = {};
-				header["X-Account-Meta-" + _.toSlug(_.toLower(key))] = value;
+				header["X-Account-Meta-" + _.toSlug(_.replace(_.toLower(key), /_/g, '-'))] = value;
 
 				// call
 				request({
 					method: 'POST',
-					uri: this.context.endpoint.url,
+					uri: encodeURI(this.context.endpoint.url),
 					headers: Object.assign(
 						{
 							"X-Auth-Token": this.context.token,
@@ -143,7 +143,7 @@ class AccountMeta {
 				// call
 				request({
 					method: 'POST',
-					uri: this.context.endpoint.url,
+					uri: encodeURI(this.context.endpoint.url),
 					headers: Object.assign(
 						{
 							"X-Auth-Token": this.context.token,
@@ -202,7 +202,7 @@ class AccountMeta {
 				// call
 				request({
 					method: 'HEAD',
-					uri: this.context.endpoint.url,
+					uri: encodeURI(this.context.endpoint.url),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -213,7 +213,7 @@ class AccountMeta {
 						throw new Error(err);
 
 					let value = _.filter(res.headers, (value, header) => {
-						return (_.toLower(header) === _.toLower("X-Account-Meta-" + _.toSlug(_.toLower(key))));
+						return (_.toLower(header) === _.toLower("X-Account-Meta-" + _.toSlug(_.replace(_.toLower(key), /_/g, '-'))));
 					})
 
 					value = ((_.count(value) <= 0) ? null : value[0]);
@@ -256,7 +256,7 @@ class AccountMeta {
 				// call
 				request({
 					method: 'HEAD',
-					uri: this.context.endpoint.url,
+					uri: encodeURI(this.context.endpoint.url),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"

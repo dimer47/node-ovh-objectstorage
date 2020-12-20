@@ -51,7 +51,8 @@ class ContainersMeta {
 
 				// header
 				let header = {};
-				header["X-Container-Meta-" + _.toSlug(_.toLower(key))] = value;
+				header["X-Container-Meta-" + _.toSlug(_.replace(_.toLower(key), /_/g, '-'))] = value;
+
 
 				// check if container exist
 				if (!await this.context.containers().exist(container)) // noinspection ExceptionCaughtLocallyJS
@@ -60,7 +61,7 @@ class ContainersMeta {
 				// call
 				request({
 					method: 'POST',
-					uri: this.context.endpoint.url + '/' + container,
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
 					headers: Object.assign(
 						{
 							"X-Auth-Token": this.context.token,
@@ -166,7 +167,7 @@ class ContainersMeta {
 				// call
 				request({
 					method: 'POST',
-					uri: this.context.endpoint.url + '/' + container,
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
 					headers: Object.assign(
 						{
 							"X-Auth-Token": this.context.token,
@@ -234,7 +235,7 @@ class ContainersMeta {
 				// call
 				request({
 					method: 'HEAD',
-					uri: this.context.endpoint.url + '/' + container,
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
@@ -245,7 +246,7 @@ class ContainersMeta {
 						throw new Error(err);
 
 					let value = _.filter(res.headers, (value, header) => {
-						return (_.toLower(header) === _.toLower("X-Container-Meta-" + _.toSlug(_.toLower(key))));
+						return (_.toLower(header) === _.toLower("X-Container-Meta-" + _.toSlug(_.replace(_.toLower(key), /_/g, '-'))));
 					})
 
 					value = ((_.count(value) <= 0) ? null : value[0]);
@@ -297,7 +298,7 @@ class ContainersMeta {
 				// call
 				request({
 					method: 'HEAD',
-					uri: this.context.endpoint.url + '/' + container,
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
