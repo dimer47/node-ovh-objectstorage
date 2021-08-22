@@ -77,6 +77,17 @@ class OVHStorage {
 	}
 
 	/**
+	 * @typedef {Object} OVHStorageEndpoint
+	 *
+	 * @property {URL} url
+	 * @property {String} interface
+	 * @property {String} region
+	 * @property {String} region_id
+	 * @property {String} id
+	 */
+
+
+	/**
 	 * Initialize connection to OVH Object Storage server
 	 *
 	 * @example
@@ -141,6 +152,15 @@ class OVHStorage {
 	}
 
 	/**
+	 * Connection details object.
+	 *
+	 * @typedef {Object} ConnectionDetails
+	 * @property {String} token - Token
+	 * @property {OVHStorageEndpoint} endpoint - Endpoint
+	 * @property {String} connected_at - Start connection date time
+	 */
+
+	/**
 	 * Return connection details : token, endpoints, start connection timestamp
 	 *
 	 * @example
@@ -154,7 +174,7 @@ class OVHStorage {
 	 * }
 	 *
 	 * @async
-	 * @return {{endpoint: *, token: *, connected_at : *}}
+	 * @return {ConnectionDetails}
 	 */
 	getConnectionDetails() {
 		return {

@@ -4,7 +4,7 @@
 	"description": "Simple library to use OVH Public Cloud Object Storage.",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "mocha \"test/**/*.js\"",
 		"doc": "rm -rf ./doc && node_modules/jsdoc/jsdoc.js -c jsdoc-config.json"
 	},
 	"publishConfig": {
@@ -40,9 +40,12 @@
 	},
 	"homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme",
 	"devDependencies": {
+		"dotenv": "^10.0.0",
 		"braintree-jsdoc-template": "^3.3.0",
+		"chai": "^4.3.4",
 		"documentation": "^12.3.0",
 		"foodoc": "0.0.9",
-		"jsdoc": "^3.6.4"
+		"jsdoc": "^3.6.4",
+		"mocha": "^9.0.3"
 	}
 }
