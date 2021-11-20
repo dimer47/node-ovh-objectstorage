@@ -2,6 +2,7 @@ const fs = require('fs');
 const _ = require("../tools/lodash");
 const request = require('../tools/request');
 const moment = require('moment');
+const CryptoJS = require('crypto-js');
 
 const ObjectsMeta = require('./ObjectsMeta');
 
@@ -70,7 +71,7 @@ class Objects {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);
@@ -132,7 +133,7 @@ class Objects {
 					headers: {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
-					}, 
+					},
 					encoding: encoding
 				}, (err, res, body) => {
 					err = err || request.checkIfResponseIsError(res);
@@ -163,11 +164,11 @@ class Objects {
 	save(file, path) {
 		return this.saveFile(file, path);
 	}
-	
+
 	/**
 	 * Save file data
 	 *
-	 * @param {Buffer|Uint8Array|Blob|string|Readable} file data to save
+	 * @param {Buffer|Uint8Array|Blob|string|Readable} data data to save
 	 * @param {String} path Path where to store the file
 	 *
 	 * @async
@@ -212,7 +213,7 @@ class Objects {
 						"Accept": "application/json"
 					},
 					body: data
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);
@@ -224,7 +225,7 @@ class Objects {
 			}
 		});
 	}
-	
+
 	/**
 	 * Save file
 	 *
@@ -277,7 +278,7 @@ class Objects {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);
@@ -407,7 +408,7 @@ class Objects {
 						"Accept": "application/json",
 						"Destination": '/' + pathToPasteFile
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);
@@ -436,6 +437,56 @@ class Objects {
 		} catch (e) {
 			return false;
 		}
+	}
+
+	/**
+     * Generate temporary link to download files in private containers
+     *
+     * @param {String} path
+     * @param {Number} validityDurationInSeconds
+     * @param {Boolean} checkContainer
+     * @returns {Promise<String>}
+     */
+	getTempLink(path, validityDurationInSeconds, checkContainer = true) {
+		return new Promise(async (resolve, reject) => {
+			try {
+				// check args
+				if (_.isUndefined(path)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("File path parameter is expected.");
+				if (!_.isString(path)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("File path parameter is not a string.");
+				if (!_.includes(path, '/')) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("File path parameter isn't valid : container/filename.ext.");
+
+				// remove first path separator if is send with parameter
+				path = (() => {
+					let p = path.split('/');
+					if (p[0] === '')
+						delete p[0];
+
+					return _.filter(p, (e) => {
+						return (!_.isUndefined(e))
+					}).join('/');
+				})()
+
+				// check if file exist
+				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("File path does not seem to exist.");
+
+				let baseUrl = this.context.endpoint.url.split('/v1')[0];
+				let pathUrl = '/v1'+this.context.endpoint.url.split('/v1')[1];
+				let seconds = Math.floor(((validityDurationInSeconds * 1000) || 36e5) / 1000);
+				let method = 'GET';
+				let objectPath = pathUrl + '/' + path;
+				let expires = Math.floor(Date.now()/1000) + seconds;
+				let hmacBody = method + '\n' + expires + '\n' + objectPath;
+				let sig = CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA1, this.context.key).update(hmacBody).finalize().toString(CryptoJS.enc.Hex);
+
+				resolve(baseUrl + objectPath + '?temp_url_sig=' + sig + '&temp_url_expires=' + expires);
+			} catch (e) {
+				return reject(e);
+			}
+		});
 	}
 
 	/**
@@ -481,7 +532,7 @@ class Objects {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);
@@ -618,7 +669,7 @@ class Objects {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					if (parseInt(res.statusCode) === 404) {
 						return resolve(false);
 					}
@@ -677,7 +728,7 @@ class Objects {
 						"X-Auth-Token": this.context.token,
 						"Accept": "application/json"
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);
@@ -730,7 +781,7 @@ class Objects {
 						"X-Delete-At": Math.round(expire_date.toDate().getTime() / 1000),
 						"Accept": "application/json"
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);
@@ -798,7 +849,7 @@ class Objects {
 						"X-Delete-After": parseInt(delete_seconds),
 						"Accept": "application/json"
 					}
-				}, (err, res, body) => {
+				}, (err, res) => {
 					err = err || request.checkIfResponseIsError(res);
 					if (err) // noinspection ExceptionCaughtLocallyJS
 						throw new Error(err);

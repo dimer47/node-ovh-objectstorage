@@ -90,6 +90,8 @@ class OVHStorage {
 	 * @return {Promise<boolean|Error>}
 	 */
 	connection() {
+		this.key = this.config?.key !== undefined ? this.config.key : null;
+
 		return new Promise((resolve, reject) => {
 			request({
 				method: 'POST',
@@ -154,10 +156,11 @@ class OVHStorage {
 	 * }
 	 *
 	 * @async
-	 * @return {{endpoint: *, token: *, connected_at : *}}
+	 * @return {{key: String, endpoint: *, token: *, connected_at : *}}
 	 */
 	getConnectionDetails() {
 		return {
+			"key": this.key,
 			"token": this.token,
 			"endpoint": this.endpoint,
 			"connected_at": this.connected_at.format("YYYY-MM-DD HH:mm:ss")
