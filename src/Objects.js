@@ -47,7 +47,7 @@ class Objects {
 					throw new Error("Local path parameter is not a string.");
 
 				// check if file exist
-				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("File path does not seem to exist.");
 
 				let writeStream = fs.createWriteStream(pathLocal);
@@ -112,7 +112,7 @@ class Objects {
 					throw new Error("Path parameter isn't valid : container/filename.ext.");
 
 				// check if file exist
-				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("File path does not seem to exist.");
 
 				let file = (() => {
@@ -189,7 +189,7 @@ class Objects {
 					throw new Error("Path parameter isn't valid : container/filename.ext.");
 
 				// check if container exist
-				if (!(await this.context.containers().exist((() => {
+				if (this.context.config.options.check_exists && !(await this.context.containers().exist((() => {
 					let p = path.split('/');
 					if (p[0] === "")
 						delete p[0];
@@ -254,7 +254,7 @@ class Objects {
 					throw new Error("Path parameter isn't valid : container/filename.ext.");
 
 				// check if container exist
-				if (!(await this.context.containers().exist((() => {
+				if (this.context.config.options.check_exists && !(await this.context.containers().exist((() => {
 					let p = path.split('/');
 					if (p[0] === "")
 						delete p[0];
@@ -470,7 +470,7 @@ class Objects {
 				})()
 
 				// check if file exist
-				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("File path does not seem to exist.");
 
 				let baseUrl = this.context.endpoint.url.split('/v1')[0];
@@ -521,7 +521,7 @@ class Objects {
 				})()
 
 				// check if file exist
-				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("File path does not seem to exist.");
 
 				// delete file
@@ -634,7 +634,7 @@ class Objects {
 					throw new Error("File path parameter isn't valid : container/filename.ext.");
 
 				// check if container exist
-				if (!(await this.context.containers().exist((() => {
+				if (this.context.config.options.check_exists && !(await this.context.containers().exist((() => {
 					let p = path.split('/');
 					if (p[0] === "")
 						delete p[0];
@@ -705,7 +705,7 @@ class Objects {
 					throw new Error("File path parameter isn't valid : container/filename.ext.");
 
 				// check if file exist
-				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("File path does not seem to exist.");
 
 				let file = (() => {
@@ -767,7 +767,7 @@ class Objects {
 					throw new Error("Datetime expiration must be a valid datetime.");
 
 				// check if file exist
-				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("File path does not seem to exist.");
 
 				/** @type {Moment} **/
@@ -838,7 +838,7 @@ class Objects {
 					throw new Error("Delete seconds isn't an integer.");
 
 				// check if file exist
-				if (!(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.objects().exist(path))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("File path does not seem to exist.");
 
 				request({

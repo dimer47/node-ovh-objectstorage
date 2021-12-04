@@ -41,7 +41,8 @@ class Containers {
 					throw new Error("Container name parameter contains special chars.");
 
 				// reformat
-				container = _.toSlug(container);
+				if(this.context.config.options.slugify)
+				    container = _.toSlug(container);
 
 				// call
 				request({
@@ -102,7 +103,8 @@ class Containers {
 					throw new Error("Container name parameter contains special chars.");
 
 				// reformat
-				container = _.toSlug(container);
+				if(this.context.config.options.slugify)
+				    container = _.toSlug(container);
 
 				let headers = {};
 				if (!_.isUndefined(types)) {
@@ -190,7 +192,8 @@ class Containers {
 					throw new Error("Container name parameter contains special chars.");
 
 				// reformat
-				container = _.toSlug(container);
+				if(this.context.config.options.slugify)
+				    container = _.toSlug(container);
 
 				// get file list
 				let files = await this.context.containers().list(container);
@@ -302,10 +305,11 @@ class Containers {
 						throw new Error("Container name parameter contains special chars.");
 
 					// reformat
-					container = _.toSlug(container);
+					if(this.context.config.options.slugify)
+					    container = _.toSlug(container);
 
 					// check if container exist
-					if (!await this.context.containers().exist(container)) // noinspection ExceptionCaughtLocallyJS
+					if (this.context.config.options.check_exists && !(await this.context.containers().exist(container))) // noinspection ExceptionCaughtLocallyJS
 						throw new Error("Container name spécified in parameter don't exist.");
 
 					// call
@@ -349,7 +353,8 @@ class Containers {
 					throw new Error("Container name parameter contains special chars.");
 
 				// reformat
-				container = _.toSlug(container);
+				if(this.context.config.options.slugify)
+				    container = _.toSlug(container);
 
 				// call
 				request({
@@ -396,10 +401,11 @@ class Containers {
 						throw new Error("Container name parameter contains special chars.");
 
 					// reformat
-					container = _.toSlug(container);
+					if(this.context.config.options.slugify)
+					    container = _.toSlug(container);
 
 					// check if container exist
-					if (!await this.context.containers().exist(container)) // noinspection ExceptionCaughtLocallyJS
+					if (this.context.config.options.check_exists && !(await this.context.containers().exist(container))) // noinspection ExceptionCaughtLocallyJS
 						throw new Error("Container name spécified in parameter don't exist.");
 
 					// call

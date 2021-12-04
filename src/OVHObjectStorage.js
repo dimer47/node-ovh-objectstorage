@@ -70,6 +70,16 @@ class OVHStorage {
 		if (_.isUndefined(this.config.debug))
 			this.config.debug = false;
 
+		if (_.isUndefined(this.config.options))
+			this.config.options = {};
+
+		let options = {
+          slugify : true,
+          check_exists: true,
+        }
+		Object.assign(options, this.config.options)
+        this.config.options = options;
+
 		if (this.config.debug) {
 			request.debug = true;
 			require('request-debug')(request);

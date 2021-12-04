@@ -55,7 +55,7 @@ class ContainersMeta {
 
 
 				// check if container exist
-				if (!await this.context.containers().exist(container)) // noinspection ExceptionCaughtLocallyJS
+				if (this.context.config.options.check_exists && !(await this.context.containers().exist(container))) // noinspection ExceptionCaughtLocallyJS
 					throw new Error("Container name spécified in parameter don't exist.");
 
 				// call

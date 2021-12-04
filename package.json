@@ -1,6 +1,6 @@
 {
 	"name": "node-ovh-objectstorage",
-	"version": "2.0.4",
+	"version": "2.0.5",
 	"description": "Simple library to use OVH Public Cloud Object Storage.",
 	"main": "index.js",
 	"scripts": {

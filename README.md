@@ -51,8 +51,14 @@ var config = {
   password: '******',
   authURL: 'https://auth.cloud.ovh.net/v3/auth',
   tenantId: '******',
-  key: "Temporary key (optional), for generate temporary download link",
-  region: 'SBG'
+  region: 'SBG',
+  // key is optional
+  key: "Temporary key (optional), for generate temporary download link", 
+  // options is optional
+  options: {
+    slugify : true, // true, by default 
+    check_exists: true, // true, by default
+  }
 };
 
 (async () => {
