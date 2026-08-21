@@ -41,6 +41,15 @@ npm install node-ovh-objectstorage --save
 **Requirements :** Node.js 18 or later. The library relies on the global `fetch` API,
 which replaced the deprecated `request` dependency. The public API is unchanged.
 
+## 🧪 Tests
+
+```sh
+npm test
+```
+
+Tests run against a simulated Swift endpoint, so they need neither credentials
+nor a network connection.
+
 ## 🧮 Examples :
 
 ### Authentification

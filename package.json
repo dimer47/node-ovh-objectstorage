@@ -1,10 +1,10 @@
 {
 	"name": "node-ovh-objectstorage",
-	"version": "2.0.5",
+	"version": "3.0.0",
 	"description": "Simple library to use OVH Public Cloud Object Storage.",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "node --test \"test/*.test.js\"",
 		"doc": "rm -rf ./doc && node_modules/jsdoc/jsdoc.js -c jsdoc-config.json"
 	},
 	"publishConfig": {
@@ -45,5 +45,13 @@
 	},
 	"engines": {
 		"node": ">=18.0.0"
-	}
+	},
+	"files": [
+		"index.js",
+		"src/",
+		"tools/",
+		"doc/",
+		"README.md",
+		"LICENSE"
+	]
 }
