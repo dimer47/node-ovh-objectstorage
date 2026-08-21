@@ -38,6 +38,9 @@ on [#v1.0.x branch](https://github.com/dimer47/node-ovh-objectstorage/releases/t
 npm install node-ovh-objectstorage --save
 ```
 
+**Requirements :** Node.js 18 or later. The library relies on the global `fetch` API,
+which replaced the deprecated `request` dependency. The public API is unchanged.
+
 ## 🧮 Examples :
 
 ### Authentification

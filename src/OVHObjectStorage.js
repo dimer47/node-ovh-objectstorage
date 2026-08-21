@@ -82,7 +82,6 @@ class OVHStorage {
 
 		if (this.config.debug) {
 			request.debug = true;
-			require('request-debug')(request);
 		}
 	}
 
