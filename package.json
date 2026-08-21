@@ -28,11 +28,9 @@
 	],
 	"dependencies": {
 		"crypto-js": "^4.1.1",
-		"lodash": "latest",
-		"md5": "latest",
-		"moment": "^2.25.3",
-		"request": "latest",
-		"request-debug": "latest"
+		"lodash": "^4.18.1",
+		"md5": "^2.3.0",
+		"moment": "^2.25.3"
 	},
 	"author": "IACHI Dimitri Fabien",
 	"license": "ISC",
@@ -42,8 +40,10 @@
 	"homepage": "https://github.com/dimer47/node-ovh-objectstorage#readme",
 	"devDependencies": {
 		"braintree-jsdoc-template": "^3.3.0",
-		"documentation": "^12.3.0",
-		"foodoc": "0.0.9",
-		"jsdoc": "^3.6.4"
+		"jsdoc": "^4.0.5",
+		"taffydb": "^2.7.3"
+	},
+	"engines": {
+		"node": ">=18.0.0"
 	}
 }

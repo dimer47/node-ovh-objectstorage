@@ -42,3 +42,7 @@ test/*
 
 .idea
 package-lock.json
+
+# Environnement local et tests manuels
+.env
+test-manuel/
