@@ -1,7 +1,5 @@
 # ObjectStorage OVH
 
-![Release : 2.0 ](https://img.shields.io/github/package-json/v/dimer47/node-ovh-objectstorage?color=red&style=flat-square) ![Last update](https://img.shields.io/github/last-commit/dimer47/node-ovh-objectstorage?color=yellow&label=Last%20update&style=flat-square) ![Dependency size](https://img.shields.io/bundlephobia/minzip/node-ovh-objectstorage?color=green&label=dependency%20size&style=flat-square) ![Repo size](https://img.shields.io/github/repo-size/dimer47/node-ovh-objectstorage?style=flat-square) ![Downloads](https://img.shields.io/npm/dt/node-ovh-objectstorage?style=flat-square) ![License](https://img.shields.io/github/license/dimer47/node-ovh-objectstorage?style=flat-square)
-
 Simple library to use OVH Public Cloud Object Storage. <br> <br>
 Create and manage containers (public, private or static), add and manage objects in OVH Public Cloud (OpenStack).
 
@@ -633,3 +631,6 @@ var config = {
 
 [Creative Commons Attribution Share Alike 4.0 International](LICENSE)
 
+## 📊 Project status
+
+![Release : 2.0 ](https://img.shields.io/github/package-json/v/dimer47/node-ovh-objectstorage?color=red&style=flat-square) ![Last update](https://img.shields.io/github/last-commit/dimer47/node-ovh-objectstorage?color=yellow&label=Last%20update&style=flat-square) ![Unpacked size](https://img.shields.io/npm/unpacked-size/node-ovh-objectstorage?color=green&style=flat-square) ![Repo size](https://img.shields.io/github/repo-size/dimer47/node-ovh-objectstorage?style=flat-square) ![Downloads](https://img.shields.io/npm/dt/node-ovh-objectstorage?style=flat-square) ![License](https://img.shields.io/github/license/dimer47/node-ovh-objectstorage?style=flat-square)
