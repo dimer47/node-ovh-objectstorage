@@ -293,40 +293,38 @@ class Containers {
 	 * @return {Promise<Array<Object>>}
 	 */
 	list(container) {
-		return new Promise((resolve, reject) => {
+		return new Promise(async (resolve, reject) => {
 			try {
-				(async () => {
-					// check
-					if (_.isUndefined(container)) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name parameter is expected.");
-					if (!_.isString(container)) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name parameter is not a string.");
-					if (_.includes(container, "/")) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name parameter contains special chars.");
+				// check
+				if (_.isUndefined(container)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name parameter is expected.");
+				if (!_.isString(container)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name parameter is not a string.");
+				if (_.includes(container, "/")) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name parameter contains special chars.");
 
-					// reformat
-					if(this.context.config.options.slugify)
-					    container = _.toSlug(container);
+				// reformat
+				if(this.context.config.options.slugify)
+				    container = _.toSlug(container);
 
-					// check if container exist
-					if (this.context.config.options.check_exists && !(await this.context.containers().exist(container))) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name spécified in parameter don't exist.");
+				// check if container exist
+				if (this.context.config.options.check_exists && !(await this.context.containers().exist(container))) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name spécified in parameter don't exist.");
 
-					// call
-					request({
-						method: 'GET',
-						uri: encodeURI(this.context.endpoint.url + '/' + container),
-						headers: {
-							"X-Auth-Token": this.context.token,
-							"Accept": "application/json"
-						}
-					}, (err, res, body) => {
-						err = err || request.checkIfResponseIsError(res);
-						if (err) throw new Error(err);
+				// call
+				request({
+					method: 'GET',
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
+					headers: {
+						"X-Auth-Token": this.context.token,
+						"Accept": "application/json"
+					}
+				}, (err, res, body) => {
+					err = err || request.checkIfResponseIsError(res);
+					if (err) throw new Error(err);
 
-						return resolve((_.isString(body) ? (_.isJSON(body) ? JSON.parse(body) : body) : body));
-					});
-				})();
+					return resolve((_.isString(body) ? (_.isJSON(body) ? JSON.parse(body) : body) : body));
+				});
 			} catch (e) {
 				return reject(e);
 			}
@@ -389,41 +387,39 @@ class Containers {
 	 * @return {Promise<Object>}
 	 */
 	info(container) {
-		return new Promise((resolve, reject) => {
+		return new Promise(async (resolve, reject) => {
 			try {
-				(async () => {
-					// check
-					if (_.isUndefined(container)) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name parameter is expected.");
-					if (!_.isString(container)) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name parameter is not a string.");
-					if (_.includes(container, "/")) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name parameter contains special chars.");
+				// check
+				if (_.isUndefined(container)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name parameter is expected.");
+				if (!_.isString(container)) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name parameter is not a string.");
+				if (_.includes(container, "/")) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name parameter contains special chars.");
 
-					// reformat
-					if(this.context.config.options.slugify)
-					    container = _.toSlug(container);
+				// reformat
+				if(this.context.config.options.slugify)
+				    container = _.toSlug(container);
 
-					// check if container exist
-					if (this.context.config.options.check_exists && !(await this.context.containers().exist(container))) // noinspection ExceptionCaughtLocallyJS
-						throw new Error("Container name spécified in parameter don't exist.");
+				// check if container exist
+				if (this.context.config.options.check_exists && !(await this.context.containers().exist(container))) // noinspection ExceptionCaughtLocallyJS
+					throw new Error("Container name spécified in parameter don't exist.");
 
-					// call
-					request({
-						method: 'HEAD',
-						uri: encodeURI(this.context.endpoint.url + '/' + container),
-						headers: {
-							"X-Auth-Token": this.context.token,
-							"Accept": "application/json"
-						}
-					}, (err, res, body) => {
-						err = err || request.checkIfResponseIsError(res);
-						if (err) // noinspection ExceptionCaughtLocallyJS
-							throw new Error(err);
+				// call
+				request({
+					method: 'HEAD',
+					uri: encodeURI(this.context.endpoint.url + '/' + container),
+					headers: {
+						"X-Auth-Token": this.context.token,
+						"Accept": "application/json"
+					}
+				}, (err, res, body) => {
+					err = err || request.checkIfResponseIsError(res);
+					if (err) // noinspection ExceptionCaughtLocallyJS
+						throw new Error(err);
 
-						return resolve(res.headers);
-					});
-				})();
+					return resolve(res.headers);
+				});
 			} catch (e) {
 				return reject(e);
 			}
